@@ -295,6 +295,7 @@ type AjaxRequest =
   , username :: Nullable String
   , password :: Nullable String
   , withCredentials :: Boolean
+  , timeout :: Nullable Int
   }
 
 foreign import _ajax
