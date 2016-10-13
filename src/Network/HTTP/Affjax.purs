@@ -66,6 +66,7 @@ type AffjaxRequest a =
   , username :: Maybe String
   , password :: Maybe String
   , withCredentials :: Boolean
+  , timeout :: Maybe Int
   }
 
 defaultRequest :: AffjaxRequest Unit
@@ -77,6 +78,7 @@ defaultRequest =
   , username: Nothing
   , password: Nothing
   , withCredentials: false
+  , timeout: Nothing
   }
 
 -- | The type of records that will be received as an Affjax response.

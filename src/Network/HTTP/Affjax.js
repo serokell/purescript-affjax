@@ -74,6 +74,9 @@ exports._ajax = function (mkHeader, options, canceler, errback, callback) {
     };
     xhr.responseType = options.responseType;
     xhr.withCredentials = options.withCredentials;
+    if(options.timeout) {
+      xhr.timeout = options.timeout;
+    }
     xhr.send(options.content);
     return canceler(xhr);
   };
