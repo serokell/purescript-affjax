@@ -74,7 +74,7 @@ exports._ajax = function (mkHeader, options, canceler, errback, callback) {
     };
     xhr.responseType = options.responseType;
     xhr.withCredentials = options.withCredentials;
-    if(options.timeout) {
+    if(options.timeout || options.timeout === 0) {
       xhr.timeout = options.timeout;
     }
     xhr.send(options.content);

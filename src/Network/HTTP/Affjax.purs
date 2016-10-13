@@ -254,6 +254,7 @@ affjax' req eb cb =
     , username: toNullable req.username
     , password: toNullable req.password
     , withCredentials: req.withCredentials
+    , timeout: toNullable req.timeout
     }
 
   requestSettings :: Tuple (Maybe MediaType) (Maybe RequestContent)
