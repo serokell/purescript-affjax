@@ -41,6 +41,7 @@ import Data.Maybe (Maybe(..))
 import Data.MediaType (MediaType())
 import Data.Nullable (Nullable(), toNullable)
 import Data.Tuple (Tuple(..), fst, snd)
+import Data.String (null)
 
 import Math (max, pow)
 
@@ -280,8 +281,10 @@ affjax' req eb cb =
 
   fromResponse' :: ResponseContent -> F b
   fromResponse' = case snd responseSettings of
-    JSONResponse -> fromResponse <=< parseJSON <=< readString
+    JSONResponse -> fromResponse <=< parseJSON <<< expandEmptyString <=< readString
     _ -> fromResponse
+    where
+      expandEmptyString s = if null s then "\"\"" else s
 
 type AjaxRequest =
   { method :: String
