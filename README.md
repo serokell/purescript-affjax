@@ -1,8 +1,7 @@
 # purescript-affjax
 
-[![Latest release](http://img.shields.io/bower/v/purescript-affjax.svg)](https://github.com/slamdata/purescript-affjax/releases)
-[![Build Status](https://travis-ci.org/slamdata/purescript-affjax.svg?branch=master)](https://travis-ci.org/slamdata/purescript-affjax)
-[![Dependency Status](https://www.versioneye.com/user/projects/56e38257df573d00495abbe2/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56e38257df573d00495abbe2)
+[![Latest release](http://img.shields.io/github/release/slamdata/purescript-affjax.svg)](https://github.com/slamdata/purescript-affjax/releases)
+[![Build status](https://travis-ci.org/slamdata/purescript-affjax.svg?branch=master)](https://travis-ci.org/slamdata/purescript-affjax)
 
 A library taking advantage of [`purescript-aff`](https://github.com/slamdata/purescript-aff) to enable pain-free asynchronous AJAX requests and response handling.
 
@@ -37,7 +36,7 @@ import Network.HTTP.Affjax (affjax, defaultRequest)
 
 main = launchAff $ do
   res <- affjax $ defaultRequest { url = "/api", method = Left GET }
-  liftEff $ log $ "GET /api response: " ++ res.response
+  liftEff $ log $ "GET /api response: " <> res.response
 ```
 
 (`defaultRequest` is a record value that has all the required fields pre-set for convenient overriding when making a request.)
@@ -49,10 +48,10 @@ import Network.HTTP.Affjax (get, post)
 
 main = launchAff $ do
   res1 <- get "/api"
-  liftEff $ log $ "GET /api response: " ++ res1.response
+  liftEff $ log $ "GET /api response: " <> res1.response
 
   res2 <- post "/api" someData
-  liftEff $ log $ "POST /api response: " ++ res2.response
+  liftEff $ log $ "POST /api response: " <> res2.response
 ```
 
 See the module documentation for a full list of these helpers.
